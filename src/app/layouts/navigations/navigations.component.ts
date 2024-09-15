@@ -6,14 +6,13 @@ import { map, shareReplay } from 'rxjs/operators';
 @Component({
   selector: 'pm-navigations',
   templateUrl: './navigations.component.html',
-  styleUrl: './navigations.component.scss'
+  styleUrl: './navigations.component.scss',
 })
 export class NavigationsComponent {
   private breakpointObserver = inject(BreakpointObserver);
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+    map((result) => result.matches),
+    shareReplay(),
+  );
 }

@@ -1,0 +1,26 @@
+<ng-container appPreventCtrlS>
+  <!-- Here is the working header -->
+  <app-header></app-header>
+  <!-- Here is the working sidenavbar -->
+  <mat-sidenav-container class="container">
+    <mat-sidenav #sidenav mode="side" opened class="sidenav">
+      <div *ngFor="let menu of layout; index as i">
+        <button
+          *ngIf="menu?.is_enable"
+          class="nav-menu nav-btn"
+          [routerLink]="menu?.path"
+          routerLinkActive="active-link"
+          mat-button
+        >
+          <mat-icon>{{ menu?.icon }}</mat-icon
+          >{{ menu?.name }}
+        </button>
+      </div>
+    </mat-sidenav>
+    <!-- Here is the sidenavbar content rendering -->
+    <app-sidenav-content></app-sidenav-content>
+  </mat-sidenav-container>
+
+  <!-- Here is the working footer -->
+  <app-footer (sidenav)="handleSideNavToggle()"></app-footer>
+</ng-container>

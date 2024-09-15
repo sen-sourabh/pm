@@ -1,0 +1,16 @@
+<div class="footer">
+  <!-- <button mat-icon-button class="btn btn-footer" (click)="sidebarToggle()"> -->
+  <div class="primary footer-container">
+    <span class="sidebar-toggle" (click)="sidebarToggle()" matTooltip="Toggle Sidebar" matTooltipPosition="above">
+      <mat-icon *ngIf="!isOpened">chevron_right</mat-icon>
+      <mat-icon *ngIf="isOpened">chevron_left</mat-icon>
+    </span>
+    <span class="sidebar-toggle" (click)="refreshCurrentPage()" matTooltip="Refresh" matTooltipPosition="above">
+      <mat-icon>refresh</mat-icon>
+    </span>
+    <span class="sidebar-toggle" (click)="searchHelp()" matTooltip="Help" matTooltipPosition="above">
+      <mat-icon>help</mat-icon>
+    </span>
+  </div>
+  <!-- </button> -->
+</div>

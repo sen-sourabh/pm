@@ -1,0 +1,100 @@
+<div [ngClass]="light ? 'container' : 'container-dark'">
+  <div class="row">
+    <div class="col-2 left-col">
+      <div class="logo-head">
+        ng-starter <span class="sun-moon" *ngIf="light" (click)="handleThemeMode()">🌝</span
+        ><span class="sun-moon" *ngIf="!light" (click)="handleThemeMode()">🌚</span>
+      </div>
+      <div class="logo-desc">✨ Unleash your inner Angular master with ng-starter!</div>
+      <div class="logo-caption-desc">
+        This 💪 powerful tool jumpstarts your 🧑‍💻 development by providing a pre-configured Angular project foundation
+        🏗️.
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="signup-form">
+        <div class="form-head f-28">Login to your account</div>
+        <form [formGroup]="signinForm">
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input type="text" class="form-control" formControlName="email" id="email" autocomplete="on" />
+            <div
+              class="error"
+              *ngIf="
+                this.signinForm.controls['email'].hasError('required') && this.signinForm.controls['email'].touched
+              "
+            >
+              Email is required.
+            </div>
+            <div
+              class="error"
+              *ngIf="this.signinForm.controls['email'].invalid && this.signinForm.controls['email'].touched"
+            >
+              Email is invalid.
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="password">Password <a routerLink="/auth/forgot-password">Forgot ?</a></label>
+            <input
+              formControlName="password"
+              [type]="hide ? 'password' : 'text'"
+              class="form-control"
+              id="password"
+              autocomplete="on"
+            />
+            <button
+              *ngIf="!hide"
+              (click)="togglePassowrd()"
+              type="button"
+              class="btn btn-light-primary show-password-btn"
+            >
+              <mat-icon>visibility</mat-icon>
+            </button>
+            <button
+              *ngIf="hide"
+              (click)="togglePassowrd()"
+              type="button"
+              class="btn btn-light-primary show-password-btn"
+            >
+              <mat-icon>visibility_off</mat-icon>
+            </button>
+            <div
+              class="error"
+              *ngIf="
+                this.signinForm.controls['password'].hasError('required') &&
+                this.signinForm.controls['password'].touched
+              "
+            >
+              Password is required.
+            </div>
+            <div
+              class="error"
+              *ngIf="
+                this.signinForm.controls['password'].hasError('maxlength') &&
+                this.signinForm.controls['password'].touched
+              "
+            >
+              Password should be 6 characters long.
+            </div>
+            <div
+              class="error"
+              *ngIf="
+                this.signinForm.controls['password'].hasError('minlength') &&
+                this.signinForm.controls['password'].touched
+              "
+            >
+              Password should be more than 3 characters.
+            </div>
+          </div>
+          <div class="form-group form-btns">
+            <button type="button" class="btn btn-primary" (click)="handleSignIn()">Login now</button>
+          </div>
+        </form>
+        <div class="account-link">
+          <span class="already-account-text">Don't have an account?</span>
+          <a routerLink="/auth/signup">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

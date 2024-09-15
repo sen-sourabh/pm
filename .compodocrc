@@ -1,0 +1,13 @@
+{
+    "title": "Ng Starter Documentation",
+    "version": "1.0.0",
+    "output": "documentation/",
+    "port": 4201,
+    "theme": "angular",
+    "watch": true,
+    "silent": true,
+    "disableSourceCode": true,
+    "disablePrivate": true,
+    "hideGenerator": true,
+    "disableCoverage": true
+}
