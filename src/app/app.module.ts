@@ -1,15 +1,15 @@
+import { provideHttpClient, withFetch } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
-import { PmButtonComponent } from './shared/components/pm-button/pm-button.component';
 
 @NgModule({
-  declarations: [AppComponent, PageNotFoundComponent, PmButtonComponent],
-  imports: [BrowserModule, AppRoutingModule],
-  providers: [provideClientHydration()],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
+  providers: [provideClientHydration(), provideAnimationsAsync(), provideHttpClient(withFetch())],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
