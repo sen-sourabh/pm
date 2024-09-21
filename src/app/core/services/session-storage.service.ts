@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { LoggerService } from './logger.service';
 
 @Injectable({
@@ -6,13 +7,19 @@ import { LoggerService } from './logger.service';
 })
 // Session Storage clears when the page session ends or browser tab will be closed
 export class SessionStorageService {
-  constructor() {}
+  private static storage: Storage | null = null;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    if (isPlatformBrowser(this.platformId)) {
+      SessionStorageService.storage = window.sessionStorage;
+    }
+  }
 
   static set(key: string, value: string | unknown | any): string | void {
     try {
       typeof value === 'object'
-        ? sessionStorage.setItem(key, JSON.stringify(value))
-        : sessionStorage.setItem(key, value);
+        ? this.storage?.setItem(key, JSON.stringify(value))
+        : this.storage?.setItem(key, value);
     } catch (error) {
       LoggerService.error(`SessionStorageService Set: ${error}`);
       // console.log(`SessionStorageService Set: ${error}`);
@@ -24,13 +31,13 @@ export class SessionStorageService {
     key: string,
   ): Record<string, unknown>[] | Record<string, unknown> | string | number | null {
     try {
-      const value = sessionStorage.getItem(key);
+      const value = this.storage?.getItem(key);
       if (value?.startsWith('{') || value?.startsWith('[')) {
         return JSON.parse(value);
       } else if (/^\d+$/.test(value!)) {
         return +value!;
       }
-      return value;
+      return value ?? null;
     } catch (error) {
       LoggerService.error(`SessionStorageService Get: ${error}`);
       // console.log(`SessionStorageService Get: ${error}`);
@@ -40,7 +47,7 @@ export class SessionStorageService {
 
   static remove(key: string): string | void {
     try {
-      sessionStorage.removeItem(key);
+      this.storage?.removeItem(key);
     } catch (error) {
       LoggerService.error(`SessionStorageService Remove: ${error}`);
       // console.log(`SessionStorageService Remove: ${error}`);
@@ -50,7 +57,7 @@ export class SessionStorageService {
 
   static clear(): string | void {
     try {
-      sessionStorage.clear();
+      this.storage?.clear();
     } catch (error) {
       LoggerService.error(`SessionStorageService Clear: ${error}`);
       // console.log(`SessionStorageService Clear: ${error}`);
@@ -60,7 +67,7 @@ export class SessionStorageService {
 
   static size(): number | string {
     try {
-      return sessionStorage.length;
+      return this.storage?.length ?? 0;
     } catch (error) {
       LoggerService.error(`SessionStorageService Size: ${error}`);
       // console.log(`SessionStorageService Size: ${error}`);

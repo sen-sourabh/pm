@@ -1,7 +1,10 @@
-import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
+import { CommonModule, NgIf } from '@angular/common';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
+import { CoreModule } from '../../../core/core.module';
 import { LoggerService } from '../../../core/services/logger.service';
 import { HomeComponent } from '../../../dashboard/home/home.component';
 
@@ -9,6 +12,13 @@ import { HomeComponent } from '../../../dashboard/home/home.component';
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    CoreModule,
+    NgIf,
+    MatIconModule,
+  ],
 })
 export class FooterComponent {
   // @ViewChild('sidenav') sidenav: any;

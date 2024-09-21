@@ -4,6 +4,10 @@
   <!-- Here is the working sidenavbar -->
   <mat-sidenav-container class="container">
     <mat-sidenav #sidenav mode="side" opened class="sidenav">
+      <div>
+        Angular
+      </div>
+      <hr class="horizontal-line" />
       <div *ngFor="let menu of layout; index as i">
         <button
           *ngIf="menu?.is_enable"

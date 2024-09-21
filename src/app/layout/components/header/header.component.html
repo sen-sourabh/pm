@@ -1,16 +1,15 @@
 <div class="header">
-  <mat-toolbar color="primary">
-    <div>Angular</div>
-
-    <!-- This fills the remaining space of the current row -->
-    <div class="navbar"></div>
-
-    <div class="accounts">
-      <!-- <button mat-mini-fab [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
-            <mat-menu #menu="matMenu">
-            <button mat-menu-item>Item 1</button>
-            <button mat-menu-item>Item 2</button>
-            </mat-menu> -->
-    </div>
+  <mat-toolbar class="header">
+    <mat-menu #animals="matMenu">
+      <button mat-menu-item >Vertebrates</button>
+      <button mat-menu-item >Invertebrates</button>
+    </mat-menu>
+    <mat-menu #vertebrates="matMenu">
+      <button mat-menu-item >Fishes</button>
+      <button mat-menu-item >Amphibians</button>
+      <button mat-menu-item>Reptiles</button>
+      <button mat-menu-item>Birds</button>
+      <button mat-menu-item>Mammals</button>
+    </mat-menu>
   </mat-toolbar>
 </div>

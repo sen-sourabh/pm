@@ -8,6 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
+    outlet: 'router-content',
     loadChildren: () => import('./layout/layout.module').then((m) => m.LayoutModule),
   },
 ];
