@@ -9,18 +9,15 @@ const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        outlet: 'router-content',
         loadChildren: () => import('../dashboard/dashboard.module').then((m) => m.DashboardModule),
       },
       {
         path: 'categories',
-        outlet: 'router-content',
         loadChildren: () =>
           import('../categories/categories.module').then((m) => m.CategoriesModule),
       },
       {
         path: 'tags',
-        outlet: 'router-content',
         loadChildren: () => import('../tags/tags.module').then((m) => m.TagsModule),
       },
     ],

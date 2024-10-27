@@ -1,13 +1,10 @@
 <ng-container appPreventCtrlS>
   <!-- Here is the working header -->
-  <app-header></app-header>
+  <!-- <app-header></app-header> -->
   <!-- Here is the working sidenavbar -->
   <mat-sidenav-container class="container">
     <mat-sidenav #sidenav mode="side" opened class="sidenav">
-      <div>
-        Angular
-      </div>
-      <hr class="horizontal-line" />
+      <!-- <hr class="horizontal-line" /> -->
       <div *ngFor="let menu of layout; index as i">
         <button
           *ngIf="menu?.is_enable"
@@ -20,7 +17,7 @@
           >{{ menu?.name }}
         </button>
       </div>
-    </mat-sidenav>
+    </mat-sidenav>  
     <!-- Here is the sidenavbar content rendering -->
     <app-sidenav-content></app-sidenav-content>
   </mat-sidenav-container>

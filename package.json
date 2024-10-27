@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "change:theme": "ng add @angular/material",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.scss\" \"src/**/*.html\"",
     "compodoc": "npx compodoc -p tsconfig.doc.json -s -w",
     "watch": "ng build --watch --configuration development",
