@@ -13,7 +13,7 @@ export class SidebarComponent {
   layout: SidebarMenusType[] = SidebarMenus;
   isOpened: boolean = true;
 
-  constructor() { }
+  constructor() {}
 
   handleSideNavToggle() {
     this.sidenav.toggle();

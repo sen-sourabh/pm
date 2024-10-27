@@ -14,12 +14,7 @@ import { SidenavContentComponent } from './components/sidenav-content/sidenav-co
 import { LayoutRoutingModule } from './layout-routing.module';
 
 @NgModule({
-  declarations: [
-    HeaderComponent,
-    FooterComponent,
-    SidebarComponent,
-    SidenavContentComponent,
-  ],
+  declarations: [HeaderComponent, FooterComponent, SidebarComponent, SidenavContentComponent],
   imports: [
     CommonModule,
     CoreModule,
