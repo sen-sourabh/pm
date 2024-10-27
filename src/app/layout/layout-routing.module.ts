@@ -12,13 +12,17 @@ const routes: Routes = [
         loadChildren: () => import('../dashboard/dashboard.module').then((m) => m.DashboardModule),
       },
       {
-        path: 'categories',
-        loadChildren: () =>
-          import('../categories/categories.module').then((m) => m.CategoriesModule),
+        path: 'users',
+        loadChildren: () => import('../users/users.module').then((m) => m.UsersModule),
       },
       {
-        path: 'tags',
-        loadChildren: () => import('../tags/tags.module').then((m) => m.TagsModule),
+        path: 'vaults',
+        loadChildren: () => import('../vaults/vaults.module').then((m) => m.VaultsModule),
+      },
+      {
+        path: 'custom-fields',
+        loadChildren: () =>
+          import('../custom-fields/custom-fields.module').then((m) => m.CustomFieldsModule),
       },
     ],
   },
