@@ -16,22 +16,17 @@
   background: whitesmoke;
 }
 
-.mdc-button:hover {
-  color: white !important;
-  background-color: rgb(63, 81, 181);
-}
-.active-link {
-  color: white !important;
-  background-color: rgb(63, 81, 181);
-}
-
-.active-link1 {
-  background-color: #f0f0f0;
-  color: #000;
-}
-
 .mdc-button {
   justify-content: flex-start;
   width: -webkit-fill-available;
   margin-bottom: 1px;
+}
+
+.mdc-button:hover {
+  transition: 0.25s ease-in-out;
+}
+
+.active-link {
+  color: white !important;
+  background-color: rgb(63, 81, 181);
 }

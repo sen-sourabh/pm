@@ -1,0 +1,11 @@
+<mat-card class="single-card" appearance="raised">
+  <mat-card-header *ngIf="cardData?.count" class="card-header"
+    ><mat-icon class="header-icon">{{ cardData?.icon }}</mat-icon>
+    <span class="header-span-count">{{ cardData?.count }}</span></mat-card-header
+  >
+  <mat-card-content *ngIf="cardData?.title" class="card-content">
+    {{ cardData?.title | capitalizeFirstLetter }}</mat-card-content
+  >
+  <!-- <mat-card-actions class="card-padding" *ngIf="cardAction">{{cardAction}}</mat-card-actions> -->
+  <!-- <mat-card-footer class="card-padding" *ngIf="cardFooter">{{cardFooter}}</mat-card-footer> -->
+</mat-card>
