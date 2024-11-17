@@ -16,6 +16,7 @@ export class SidebarComponent {
   constructor() {}
 
   handleSideNavToggle() {
+    console.log(this.sidenav);
     this.sidenav.toggle();
   }
 }
