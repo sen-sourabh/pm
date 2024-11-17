@@ -1,5 +1,7 @@
 .mat-sidenav-content {
   padding: 1%;
-  height: auto;
+  max-height: 96%;
   margin: 0 !important;
+  overflow-y: unset;
+  background-color: lightgrey;
 }

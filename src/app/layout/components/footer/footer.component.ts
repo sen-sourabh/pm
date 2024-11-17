@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { LoggerService } from '../../../core/services/logger.service';
@@ -12,25 +11,25 @@ import { HomeComponent } from '../../../dashboard/home/home.component';
 })
 export class FooterComponent {
   // @ViewChild('sidenav') sidenav: any;
-  @Output() sidenav = new EventEmitter<any>();
-  isOpened: boolean = true;
+  // @Output() sidenav = new EventEmitter<any>();
+  // isOpened: boolean = true;
 
-  options = this._formBuilder.group({
-    bottom: 0,
-    fixed: false,
-    top: 0,
-  });
+  // options = this._formBuilder.group({
+  //   bottom: 0,
+  //   fixed: false,
+  //   top: 0,
+  // });
 
   constructor(
-    private _formBuilder: FormBuilder,
+    // private _formBuilder: FormBuilder,
     private router: Router,
     private dialog: MatDialog,
   ) {}
 
-  sidebarToggle() {
-    this.isOpened = !this.isOpened;
-    this.sidenav.emit();
-  }
+  // sidebarToggle() {
+  //   this.isOpened = !this.isOpened;
+  //   this.sidenav.emit();
+  // }
 
   refreshCurrentPage() {
     // this.router.navigate(['http://localhost:4200/home/sidebar/dashboard']);
